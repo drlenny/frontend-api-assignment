@@ -8,21 +8,16 @@ fetch("https://www.themealdb.com/api/json/v1/1/list.php?c=list")
 let mealList = (data) => {
     console.log(data);
 
-
-    let mealsArr = Object.keys(data.meals);
-
+    let mealsArr = data.meals;
     console.log(mealsArr);
 
     for (let i = 0; i < mealsArr.length; i++){
 
         let mealSel = document.getElementById("mainMeal");
         let mealOpt = document.createElement("option");
-        
 
-        mealOpt.innerHTML = mealsArr[i];
-        mealOpt.value = mealsArr[i];
+        mealOpt.innerHTML = mealsArr[i].strCategory;
+        mealOpt.value = mealsArr[i].strCategory;
         mealSel.appendChild(mealOpt);
-        console.log(mealsArr[i]);
-
     }
 }
