@@ -46,7 +46,7 @@ var drinkList = (data) => {
         
 
         drinkOpt.innerHTML = drinkArr[i].strCategory;
-        drinkOpt.value = drinkArr[i];
+        drinkOpt.value = drinkArr[i].strCategory;
         drinkSel.appendChild(drinkOpt);
         // console.log(drinkArr[i]);
 
@@ -109,9 +109,11 @@ var getDrinkImage = (data) => {
 }
 
 drinkButton.addEventListener("click", function(){
+    // var drinkInput = selectDrink.value;
+    // var replaced = drinkInput.split(' ').join
     fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=" + selectDrink.value)
     .then(response => response.json())
     .then(data => getDrinkImage(data))
-    .catch((error) => console.log("error", error));
+    .catch(error => console.log("error", error));
     
 })
