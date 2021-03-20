@@ -49,9 +49,13 @@ var drinkList = (data) => {
         drinkOpt.value = drinkArr[i].strCategory;
         drinkSel.appendChild(drinkOpt);
         // console.log(drinkArr[i]);
-
+  
+        mealOpt.innerHTML = mealsArr[i].strCategory;
+        mealOpt.value = mealsArr[i].strCategory;
+        mealSel.appendChild(mealOpt);
     }
 }
+
 
 ////////////////
 
@@ -71,7 +75,11 @@ let getMealImage = (data) => {
 
     let randomMeal = categoryArr[Math.floor(Math.random() * categoryArr.length)];
 
+
     console.log(randomMeal);
+
+    // console.log(randomMeal);
+
 
     let mealImage = document.getElementById("mealImage");
 
@@ -117,3 +125,7 @@ drinkButton.addEventListener("click", function(){
     .catch(error => console.log("error", error));
     
 })
+
+})
+
+
