@@ -25,20 +25,24 @@
   <div class="container">
     <div class="row align-items-start">
       <form>
-        <select name="mainMeal" id="mainMeal" placeholder="All"></select>
-        <button id="submitButton" type="button" class="btn btn-outline-info">Generate Your Meal</button>
+        <select name="selectMeal" id="selectMeal" placeholder="All"></select>
+        <button id="mealButton" type="button" class="btn btn-outline-info">Generate Your Meal</button>
       </form>
       <div class="col" id="theMeal">
         <h2>The Meal</h2>
-        <div class="square" id="mealImage"></div>
+        <div class="square">
+          <img id="mealImage" src="" alt="meal image">
+        </div>
       </div>
       <form>
-        <select name="mainDrink" id="mainDrink" placeholder="All"></select>
-        <button id="submitButton" type="button" class="btn btn-outline-info">Generate Your Meal</button>
+        <select name="selectDrink" id="selectDrink" placeholder="All"></select>
+        <button id="drinkButton" type="button" class="btn btn-outline-info">Generate Your Drink</button>
       </form>
       <div class="col" id="theDrink">
         <h2>The Drink</h2>
-        <div class="square" id="drinkImage"></div>
+        <div class="square">
+          <img id="drinkImage" src="" alt="drink image">
+        </div>
       </div>
     </div>
   </div>
