@@ -1,5 +1,8 @@
 const apiKey = config.apiKey;
 
+const drinkImage = document.getElementById("drinkImage");
+
+const mealImage = document.getElementById("mealImage");
 
 // making dropdown menu for the meal options 
 
@@ -14,7 +17,7 @@ let mealList = (data) => {
     let mealsArr = data.meals;
     // console.log(mealsArr);
 
-    for (let i = 0; i < mealsArr.length; i++){
+    for (let i = 0; i < mealsArr.length; i++) {
 
         let mealSel = document.getElementById("selectMeal");
         let mealOpt = document.createElement("option");
@@ -39,23 +42,21 @@ var drinkList = (data) => {
 
     // console.log(drinkArr);
 
-    for (let i = 0; i < drinkArr.length; i++){
+    for (let i = 0; i < drinkArr.length; i++) {
 
         var drinkSel = document.getElementById("selectDrink");
         var drinkOpt = document.createElement("option");
-        
+
 
         drinkOpt.innerHTML = drinkArr[i].strCategory;
         drinkOpt.value = drinkArr[i].strCategory;
         drinkSel.appendChild(drinkOpt);
         // console.log(drinkArr[i]);
-  
+
     }
 }
 
-
-////////////////
-
+//---------------------------------------//
 
 // getting a random meal from selected category and displaying it
 
@@ -67,28 +68,25 @@ const mealButton = document.getElementById("mealButton")
 let getMealImage = (data) => {
     // console.log(data);
     // console.log(data.meals);
-    
+
     let categoryArr = data.meals
 
     let randomMeal = categoryArr[Math.floor(Math.random() * categoryArr.length)];
 
 
-    console.log(randomMeal);
-
     // console.log(randomMeal);
 
 
-    let mealImage = document.getElementById("mealImage");
 
     mealImage.src = randomMeal.strMealThumb
 }
 
-mealButton.addEventListener("click", function(){
+mealButton.addEventListener("click", function () {
     fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=" + selectMeal.value)
-    .then(response => response.json())
-    .then(data => getMealImage(data))
-    .catch((error) => console.log("error", error));
-    
+        .then(response => response.json())
+        .then(data => getMealImage(data))
+        .catch((error) => console.log("error", error));
+
 })
 
 // ------- Get random drink ----------
@@ -101,26 +99,51 @@ const drinkButton = document.getElementById("drinkButton")
 var getDrinkImage = (data) => {
     console.log(data);
     console.log(data.drinks);
-    
+
     var categoryArr = data.drinks
 
     var randomDrink = categoryArr[Math.floor(Math.random() * categoryArr.length)];
 
-    console.log(randomDrink);
+    // console.log(randomDrink);
 
-    var drinkImage = document.getElementById("drinkImage");
 
     drinkImage.src = randomDrink.strDrinkThumb
 }
 
-drinkButton.addEventListener("click", function(){
+drinkButton.addEventListener("click", function () {
     // var drinkInput = selectDrink.value;
     // var replaced = drinkInput.split(' ').join
     fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=" + selectDrink.value)
-    .then(response => response.json())
-    .then(data => getDrinkImage(data))
-    .catch((error) => console.log("error", error));
-    
+        .then(response => response.json())
+        .then(data => getDrinkImage(data))
+        .catch((error) => console.log("error", error));
+
+})
+
+
+// randomize meal and drink button -------------
+
+const randomButton = document.getElementById("randomButton")
+
+
+var getRandomImages = (data) => {
+    // console.log(data);
+    // console.log(data[0].meals[0].strMeal);
+    // console.log(data[0].meals[0].strMealThumb);
+
+    mealImage.src = data[0].meals[0].strMealThumb
+
+    drinkImage.src = data[1].drinks[0].strDrinkThumb
+
+}
+
+randomButton.addEventListener("click", function () {
+    let randomMealApi = fetch("https://www.themealdb.com/api/json/v1/1/random.php").then(response => response.json())
+    let randomDrinkApi = fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php").then(response => response.json())
+
+    Promise.all([randomMealApi, randomDrinkApi])
+        .then(data => getRandomImages(data))
+        .catch((error) => console.log("error", error))
 })
 
 
