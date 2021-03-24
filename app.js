@@ -5,6 +5,7 @@ const drinkImage = document.getElementById("drinkImage");
 const mealImage = document.getElementById("mealImage");
 
 // making dropdown menu for the meal options 
+if($("body").hasClass("mainPage")){
 
 fetch("https://www.themealdb.com/api/json/v1/1/list.php?c=list")
     .then(response => response.json())
@@ -64,6 +65,10 @@ const selectMeal = document.getElementById("selectMeal")
 
 const mealButton = document.getElementById("mealButton")
 
+            // var mealImage = document.getElementById("mealImage");
+            // var mealName = document.getElementById("mealName")
+
+            // mealName.innerHTML = randomMeal.strMeal
 
 let getMealImage = (data) => {
     // console.log(data);
@@ -75,7 +80,9 @@ let getMealImage = (data) => {
 
 
     // console.log(randomMeal);
+    var mealName = document.getElementById("mealName")
 
+    mealName.innerHTML = randomMeal.strMeal
 
 
     mealImage.src = randomMeal.strMealThumb
@@ -101,12 +108,17 @@ var getDrinkImage = (data) => {
     console.log(data.drinks);
 
     var categoryArr = data.drinks
-
     var randomDrink = categoryArr[Math.floor(Math.random() * categoryArr.length)];
+
+    var drinkImage = document.getElementById("drinkImage");
+    var drinkName = document.getElementById("drinkName");
+    var drinkIngredient = document.getElementById("drinkIngredient");
+
+ 
 
     // console.log(randomDrink);
 
-
+    drinkName.innerHTML = randomDrink.strDrink
     drinkImage.src = randomDrink.strDrinkThumb
 }
 
@@ -145,5 +157,38 @@ randomButton.addEventListener("click", function () {
         .then(data => getRandomImages(data))
         .catch((error) => console.log("error", error))
 })
+} else {
+
+// --------- Get ingredients and recipe ------- //
+
+var recipeButton = document.getElementById("recipeButton")
+
+$(function () {
+    // getting meal from localstorage
+    const selectedMeal = localStorage.getItem("mealName")
+
+    var mealRecipeArr = (data) => {
+        // console.log(data);
+        var recipeArr = data.meals
+        console.log(recipeArr);
+        
+        var mealRecipeImage = document.getElementById("mealRecipeImage");
+        var mealInstructions = document.getElementById("mealInstructions");
+
+        mealRecipeImage.src = recipeArr[0].strMealThumb;
+        mealInstructions.innerHTML = recipeArr[0].strInstructions;
+     
+    }
+
+    fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + selectedMeal)
+        .then(response => response.json())
+        .then(data => mealRecipeArr(data))
+   
 
 
+ 
+
+        
+     
+    })
+}

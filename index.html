@@ -13,9 +13,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<<<<<<< Updated upstream
-<body>
-=======
+
 <body class="mainPage">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="index.html">What's for Dinner?</a>
@@ -30,10 +28,9 @@
       </div>
     </div>
   </nav>
->>>>>>> Stashed changes
   <section class="top-banner">
     <div class="container">
-      <h5 class="display-3">What's for Dinner</h1>
+      <h1 class="display-3">What's for Dinner</h1>
       <br>
       <br>
   </section>
@@ -43,7 +40,7 @@
     <div class="row align-items-start">
       <form>
         <select name="selectMeal" id="selectMeal" placeholder="All"></select>
-        <button id="mealButton" type="button" class="btn btn-info">Generate Your Meal</button>
+        <button id="mealButton" type="button" class="btn btn-dark">Generate Your Meal</button>
       </form>
       <div class="col" id="theMeal">
         <h2>The Meal</h2>
@@ -56,7 +53,7 @@
       <form>
         <select name="selectDrink" id="selectDrink" placeholder="All"></select>
 
-        <button id="drinkButton" type="button" class="btn btn-info">Generate Your Drink</button>
+        <button id="drinkButton" type="button" class="btn btn-dark">Generate Your Drink</button>
 
 
       </form>
@@ -68,9 +65,16 @@
         </div>
       </div>
 
-      <button id="randomButton" type="button" class="btn btn-info">
+      <button id="randomButton" type="button" class="btn btn-dark">
         Surprise Me!
       </button>
+      <form action="recipe.html">
+
+        <button id="recipeButton" type="submit" class="btn btn-dark">
+          Satisfied With the Selection? Learn How to Make it!
+        </button>
+
+      </form>
 
     </div>
   </div>
