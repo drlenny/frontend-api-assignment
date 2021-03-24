@@ -2,68 +2,76 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>It's What's for Dinner</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
-    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's What's for Dinner</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="mainPage">
-  <section class="top-banner">
-    <div class="container">
-      <h1 class="display-3">What's for Dinner</h1>
-      <br>
-      <br>
-  </section>
-
-  </div>
-  <div class="container">
-    <div class="row align-items-start">
-      <form>
-        <select name="selectMeal" id="selectMeal" placeholder="All"></select>
-        <button id="mealButton" type="button" class="btn btn-info">Generate Your Meal</button>
-      </form>
-      <div class="col" id="theMeal">
-        <h2>The Meal</h2>
-        <div class="square">
-
-          <img id="mealImage" src="" alt="meal image" style="height: 175px; width: 175px;">
-
-        </div>
-      </div>
-      <form>
-        <select name="selectDrink" id="selectDrink" placeholder="All"></select>
-
-        <button id="drinkButton" type="button" class="btn btn-info">Generate Your Drink</button>
-
-
-      </form>
-      <div class="col" id="theDrink">
-        <h2>The Drink</h2>
-        <div class="square">
-          <img id="drinkImage" src="" alt="drink image" style="height: 175px; width: 175px;">
-        </div>
-      </div>
-
-      <button id="randomButton" type="button" class="btn btn-info">
-        Surprise Me!
-      </button>
-
-      <form action="recipe.html">
-
-        <button id="recipeButton" type="submit" class="btn btn-info">
-          Satisfied With the Selection? Learn How to Make it!
-        </button>
-
-      </form>
+    <section class="top-banner">
+        <div class="container">
+            <h1 class="display-3">What's for Dinner</h1>
+            <br>
+    </section>
 
     </div>
-  </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6" id="theMeal">
+                <h2>The Meal</h2>
+
+                <form>
+                    <div>
+                        <select name="selectMeal" id="selectMeal"></select>
+                    </div>
+                    <div>
+                        <button id="mealButton" type="button" class="btn btn-info btn-lg">Generate Your Meal</button>
+                    </div>
+                </form>
+                <div class="square">
+
+                    <img id="mealImage" src="" alt="meal image" style="height: 175px; width: 175px;">
+
+                </div>
+            </div>
+            <div class="col-lg-6" id="theDrink">
+                <h2>The Drink</h2>
+
+                <form>
+                    <div>
+                        <select name="selectDrink" id="selectDrink"></select>
+                    </div>
+                    <div>
+                        <button id="drinkButton" type="button" class="btn btn-info btn-lg">Generate Your Drink</button>
+                    </div>
+
+                </form>
+                <div class="square">
+                    <img id="drinkImage" src="" alt="drink image" style="height: 175px; width: 175px;">
+                </div>
+            </div>
+        </div>
+
+        <button id="randomButton" type="button" class="btn btn-info btn-lg">
+            Surprise Me!
+        </button>
+
+        <form action="recipe.html">
+
+            <button id="recipeButton" type="submit" class="btn btn-info">
+                Satisfied With the Selection? Learn How to Make it!
+            </button>
+
+        </form>
+
+    </div>
 </body>
 
 <script src="config.js"></script>

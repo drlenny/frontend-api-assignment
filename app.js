@@ -24,6 +24,7 @@ $(function () {
 
                 let mealSel = document.getElementById("selectMeal");
                 let mealOpt = document.createElement("option");
+                $(mealOpt).css("font-variant", "small-caps")
 
                 // console.log(mealsArr[i]);
 
@@ -86,7 +87,7 @@ $(function () {
         }
 
         //saving meal value to local storage
-        function saveMealImage(mealSrc){
+        function saveMealImage(mealSrc) {
             localStorage.setItem("mealName", mealSrc)
         }
 
@@ -170,4 +171,3 @@ $(function () {
         .then(response => response.json())
         .then(data => console.log(data))
 })
-
