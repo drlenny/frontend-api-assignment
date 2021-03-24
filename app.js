@@ -1,8 +1,8 @@
 const apiKey = config.apiKey;
-
 const drinkImage = document.getElementById("drinkImage");
 
 const mealImage = document.getElementById("mealImage");
+
 
 
 $(function () {
@@ -161,13 +161,32 @@ $(function () {
     }
 })
 
+
 // --------- Get ingredients and recipe ------- //
+
+var recipeButton = document.getElementById("recipeButton")
 
 $(function () {
     // getting meal from localstorage
     const selectedMeal = localStorage.getItem("mealName")
 
-    fetch("https://www.themealdb.com/api/json/v1/" + apiKey + "/search.php?s=" + selectedMeal)
+    var mealRecipeArr = (data) => {
+        // console.log(data);
+        var recipeArr = data.meals
+        console.log(recipeArr);
+
+        var mealRecipeImage = document.getElementById("mealRecipeImage");
+        var mealInstructions = document.getElementById("mealInstructions");
+
+        mealRecipeImage.src = recipeArr[0].strMealThumb;
+        mealInstructions.innerHTML = recipeArr[0].strInstructions;
+
+    }
+
+    fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + selectedMeal)
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => mealRecipeArr(data))
+        .catch((error) => console.log("error", error));
+
+
 })

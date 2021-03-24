@@ -13,26 +13,40 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body class="mainPage">
-    <section class="top-banner">
-        <div class="container">
-            <h1 class="display-3">What's for Dinner</h1>
-            <br>
-    </section>
-
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">What's for Dinner?</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="#">Contact Us</a>
+        <!-- <a class="nav-item nav-link" href="#">Pricing</a> -->
+      </div>
     </div>
-
+  </nav>
+  <section class="top-banner">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6" id="theMeal">
-                <h2>The Meal</h2>
+      <h1 class="display-3">What's for Dinner</h1>
+      <br>
+  </section>
+
+  </div>
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-6" id="theMeal">
+        <h2>The Meal</h2>
+
 
                 <form>
                     <div>
                         <select name="selectMeal" id="selectMeal"></select>
                     </div>
                     <div>
-                        <button id="mealButton" type="button" class="btn btn-info btn-lg">Generate Your Meal</button>
+                        <button id="mealButton" type="button" class="btn btn-dark btn-lg">Generate Your Meal</button>
                     </div>
                 </form>
                 <div class="square">
@@ -59,17 +73,16 @@
             </div>
         </div>
 
-        <button id="randomButton" type="button" class="btn btn-info btn-lg">
-            Surprise Me!
+      <button id="randomButton" type="button" class="btn btn-dark btn-lg">
+        Surprise Me!
+      </button>
+      <form action="recipe.html">
+
+        <button id="recipeButton" type="submit" class="btn btn-dark">
+          Satisfied With the Selection? Learn How to Make it!
         </button>
 
-        <form action="recipe.html">
-
-            <button id="recipeButton" type="submit" class="btn btn-info">
-                Satisfied With the Selection? Learn How to Make it!
-            </button>
-
-        </form>
+      </form>
 
     </div>
 </body>
