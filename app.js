@@ -109,17 +109,24 @@ $(function () {
 
 
         var getDrinkImage = (data) => {
-            console.log(data);
-            console.log(data.drinks);
+            // console.log(data);
+            // console.log(data.drinks);
 
             var categoryArr = data.drinks
 
             var randomDrink = categoryArr[Math.floor(Math.random() * categoryArr.length)];
 
-            // console.log(randomDrink);
+            console.log(randomDrink);
 
 
             drinkImage.src = randomDrink.strDrinkThumb
+
+            saveDrinkImage(randomDrink.strDrink)
+        }
+
+        //  ---------- saving drink to local --------------
+        function saveDrinkImage(drinkSrc) {
+            localStorage.setItem("drinkName", drinkSrc)
         }
 
         drinkButton.addEventListener("click", function () {
@@ -169,6 +176,8 @@ var recipeButton = document.getElementById("recipeButton")
 $(function () {
     // getting meal from localstorage
     const selectedMeal = localStorage.getItem("mealName")
+    const selectedDrink = localStorage.getItem("drinkName")
+    console.log(selectedDrink)
 
     var mealRecipeArr = (data) => {
         // console.log(data);
@@ -182,11 +191,31 @@ $(function () {
         mealInstructions.innerHTML = recipeArr[0].strInstructions;
 
     }
+    var drinkRecipeArr = (data) => {
+        console.log(data);
+        var drinkArr = data.drinks
+        console.log(drinkArr);
+
+        var drinkRecipeImage = document.getElementById("drinkRecipeImage");
+        var drinkInstructions = document.getElementById("drinkInstructions");
+
+        drinkRecipeImage.src = drinkArr[0].strDrinkThumb;
+        drinkInstructions.innerHTML = drinkArr[0].strInstructions;
+
+    }
 
     fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + selectedMeal)
         .then(response => response.json())
         .then(data => mealRecipeArr(data))
         .catch((error) => console.log("error", error));
+    
+    fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + selectedDrink)
+        .then(response => response.json())
+        .then(data => drinkRecipeArr(data))
+        .catch((error) => console.log("error", error));
 
 
 })
+
+// ---------------- Get drink ingredients -------------------
+
