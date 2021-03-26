@@ -161,7 +161,11 @@ $(function () {
             drinkImage.src = data[1].drinks[0].strDrinkThumb
             drinkName.innerHTML = data[1].drinks[0].strDrink
 
-            
+            var mealLocal = data[0].meals[0].strMeal
+            var drinkLocal = data[1].drinks[0].strDrink
+
+            saveMealImage(mealLocal);
+            saveDrinkImage(drinkLocal)
 
         }
 
