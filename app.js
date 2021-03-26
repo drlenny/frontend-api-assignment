@@ -156,9 +156,11 @@ $(function () {
             // console.log(data[0].meals[0].strMealThumb);
 
             mealImage.src = data[0].meals[0].strMealThumb
+
             mealName.innerHTML = data[0].meals[0].strMeal
 
             drinkImage.src = data[1].drinks[0].strDrinkThumb
+            
             drinkName.innerHTML = data[1].drinks[0].strDrink
 
             var mealLocal = data[0].meals[0].strMeal
@@ -187,6 +189,7 @@ $(function () {
 var recipeButton = document.getElementById("recipeButton")
 
 $(function () {
+    if ($("body").is(".instructions")) {
     // getting meal from localstorage
     const selectedMeal = localStorage.getItem("mealName")
     const selectedDrink = localStorage.getItem("drinkName")
@@ -227,8 +230,7 @@ $(function () {
         .then(data => drinkRecipeArr(data))
         .catch((error) => console.log("error", error));
 
-
+    }
 })
 
-// ---------------- Get drink ingredients -------------------
 
