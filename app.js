@@ -84,6 +84,9 @@ $(function () {
 
             saveMealImage(randomMeal.strMeal)
 
+            const mealName = document.getElementById("mealName")
+            mealName.innerHTML = randomMeal.strMeal
+
         }
 
         //saving meal value to local storage
@@ -122,6 +125,8 @@ $(function () {
             drinkImage.src = randomDrink.strDrinkThumb
 
             saveDrinkImage(randomDrink.strDrink)
+            const drinkName = document.getElementById("drinkName")
+            drinkName.innerHTML = randomDrink.strDrink
         }
 
         //  ---------- saving drink to local --------------
@@ -151,8 +156,12 @@ $(function () {
             // console.log(data[0].meals[0].strMealThumb);
 
             mealImage.src = data[0].meals[0].strMealThumb
+            mealName.innerHTML = data[0].meals[0].strMeal
 
             drinkImage.src = data[1].drinks[0].strDrinkThumb
+            drinkName.innerHTML = data[1].drinks[0].strDrink
+
+            
 
         }
 
