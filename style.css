@@ -6,6 +6,14 @@ body {
     font-variant: small-caps;
 }
 
+.nav-item{
+    padding: 0 18px;
+}
+
+.navbar-brand{
+    padding-left: 40px;
+}
+
 h1 {
     display: block;
     font-size: 2em;
@@ -13,6 +21,12 @@ h1 {
     margin-block-end: 0.67em;
     font-weight: bold;
     text-align: center;
+}
+
+img {
+    border-radius: 15px;
+    height: 250px !important;
+    width: 250px !important;
 }
 
 /* --- Form stuff ---- */
@@ -30,34 +44,49 @@ h2 {
 select {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-variant: small-caps;
-    height: 100%;
-    width: 100%;
+    height: 45px;
+    width: 180px;
+    font-size: 1rem;
 }
 
 form {
     display: flex;
+    text-align: center;
 }
 
 form div{
     flex: 1 100%;
-    margin-left: 2em;
-    margin-right: 2em;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #mealButton{
-    width: 100%;
+    width: 180px;
+    height: 45px;
+    padding: 8px 10px 8px 10px;
+    font-size: 1rem;
 }
 
 #drinkButton{
-    width: 100%;
+    width: 180px;
+    height: 45px;
+    padding: 8px 10px 8px 10px;
+    font-size: 1rem;
+
 }
 
 .square {
-    background:#622318;
-    width: 600px;
-    height: 225px;
-    margin: 10px;
+    background:#ffffff;
+    width: 280px;
+    height: 280px;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
     padding: 10px;
     border-radius: 25px;
-    border:5px solid whitesmoke
+    border:5px solid whitesmoke;
+    text-align: center;
+    
 }
+
+
