@@ -70,7 +70,7 @@ $(function () {
 
 
         let getMealImage = (data) => {
-            // console.log(data);
+            console.log(data);
             // console.log(data.meals);
 
             let categoryArr = data.meals
@@ -177,39 +177,31 @@ $(function () {
                 .then(data => getRandomImages(data))
                 .catch((error) => console.log("error", error))
         })
-        const recipeButton = document.getElementById("recipeButton");
 
-        let enableRecipe = () => {
-            if (mealImage.src !== "/images/food.png" && drinkImage.src !== "/images/cocktail.png") {
-                recipeButton.removeAttribute("disabled")
-            } 
-        }
-        enableRecipe()
     }
 })
 
 
-
 // --------- Get ingredients and recipe ------- //
 
-
+var recipeButton = document.getElementById("recipeButton")
 
 $(function () {
-    if ($("body").is(".instructions")) {
+    // getting meal from localstorage
+    const selectedMeal = localStorage.getItem("mealName")
+    const selectedDrink = localStorage.getItem("drinkName")
+    console.log(selectedDrink)
 
+    var mealRecipeArr = (data) => {
+        // console.log(data);
+        var recipeArr = data.meals
+        console.log(recipeArr);
 
-        // getting meal and drink from localstorage
-        const selectedMeal = localStorage.getItem("mealName")
-        const selectedDrink = localStorage.getItem("drinkName")
-        console.log(selectedDrink)    
+        var mealRecipeImage = document.getElementById("mealRecipeImage");
+        var mealInstructions = document.getElementById("mealInstructions");
 
-        var mealRecipeArr = (data) => {
-            console.log(data);
-            var recipeArr = data.meals
-            console.log(recipeArr);
-
-            var mealRecipeImage = document.getElementById("mealRecipeImage");
-            var mealInstructions = document.getElementById("mealInstructions");
+        mealRecipeImage.src = recipeArr[0].strMealThumb;
+        mealInstructions.innerHTML = recipeArr[0].strInstructions;
 
     }
     var drinkRecipeArr = (data) => {
@@ -235,12 +227,8 @@ $(function () {
         .then(data => drinkRecipeArr(data))
         .catch((error) => console.log("error", error));
 
-        fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + selectedMeal)
-            .then(response => response.json())
-            .then(data => mealRecipeArr(data))
-            .catch((error) => console.log("error", error));
 
-    }
 })
 
+// ---------------- Get drink ingredients -------------------
 
