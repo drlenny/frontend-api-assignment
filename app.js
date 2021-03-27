@@ -214,9 +214,11 @@ $(function () {
 
         var drinkRecipeImage = document.getElementById("drinkRecipeImage");
         var drinkInstructions = document.getElementById("drinkInstructions");
+        
 
         drinkRecipeImage.src = drinkArr[0].strDrinkThumb;
         drinkInstructions.innerHTML = drinkArr[0].strInstructions;
+        
 
     }
 
