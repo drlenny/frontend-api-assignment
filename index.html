@@ -50,7 +50,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-6" id="theMeal">
+            <div class="col" id="theMeal">
                 <h2>The Meal</h2>
 
 
@@ -62,13 +62,18 @@
                         <button id="mealButton" type="button" class="btn btn-dark btn-lg">Generate Your Meal</button>
                     </div>
                 </form>
+                <div id="mealName"></div>
+
                 <div class="square">
-                    <span id="mealName"></span>
                     <img id="mealImage" src="/images/food.png" alt="meal image">
 
                 </div>
             </div>
-            <div class="col-lg-6" id="theDrink">
+
+
+
+
+            <div class="col" id="theDrink">
                 <h2>The Drink</h2>
 
                 <form>
@@ -80,25 +85,42 @@
                     </div>
 
                 </form>
+                <div id="drinkName"></div>
                 <div class="square">
-                    <span id="drinkName"></span>
                     <img id="drinkImage" src="/images/cocktail.png" alt="drink image">
                 </div>
             </div>
         </div>
 
-        <button id="randomButton" type="button" class="btn btn-dark btn-lg">
-            Surprise Me!
-        </button>
-        <form action="recipe.html">
+    <!-- buttons on bottom -->
+        <div class="row bottom">
+            <div id="randomSelection" class="col">
 
-            <button id="recipeButton" type="submit" class="btn btn-dark">
-                Satisfied With the Selection? Learn How to Make it!
-            </button>
+                <h3>Can't Decide?</h3>
+                <button id="randomButton" type="button" class="btn btn-dark btn-lg">
+                    Surprise Me!
+                </button>
+    
+            </div>
+    
+            <div id="satisfiedSelection" class="col">
+    
+                <h3>Satisfied With the Selection?</h3>
+    
+                <form action="recipe.html">
+    
+                    <button id="recipeButton" type="submit" class="btn btn-dark btn-lg" disabled>
+                        Learn How to Make it!
+                    </button>
+    
+                </form>
+    
+            </div>
+        </div>
 
-        </form>
 
     </div>
+
 </body>
 
 <script src="config.js"></script>
