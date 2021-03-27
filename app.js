@@ -7,6 +7,7 @@ const mealImage = document.getElementById("mealImage");
 
 $(function () {
     if ($("body").is(".mainPage")) {
+
         // making dropdown menu for the meal options 
 
         fetch("https://www.themealdb.com/api/json/v1/" + apiKey + "/list.php?c=list")
@@ -62,6 +63,15 @@ $(function () {
 
         //---------------------------------------//
 
+        // enabling the recipe button if conditions are met
+
+        var enableButton = () => {
+            if (document.getElementById("drinkName").innerHTML !== "" && document.getElementById("mealName").innerHTML !== ""){
+                $("#recipeButton").removeAttr("disabled")
+            }
+        }
+
+
         // getting a random meal from selected category and displaying it
 
         const selectMeal = document.getElementById("selectMeal")
@@ -86,6 +96,8 @@ $(function () {
 
             const mealName = document.getElementById("mealName")
             mealName.innerHTML = randomMeal.strMeal
+
+            enableButton()
 
         }
 
@@ -127,6 +139,9 @@ $(function () {
             saveDrinkImage(randomDrink.strDrink)
             const drinkName = document.getElementById("drinkName")
             drinkName.innerHTML = randomDrink.strDrink
+
+            enableButton()
+
         }
 
         //  ---------- saving drink to local --------------
@@ -169,6 +184,8 @@ $(function () {
             saveMealImage(mealLocal);
             saveDrinkImage(drinkLocal)
 
+            enableButton()
+
         }
 
         randomButton.addEventListener("click", function () {
@@ -180,13 +197,14 @@ $(function () {
                 .catch((error) => console.log("error", error))
         })
 
+
+        
     }
 })
 
 
 // --------- Get ingredients and recipe ------- //
 
-var recipeButton = document.getElementById("recipeButton")
 
 $(function () {
     if ($("body").is(".instructions")) {
