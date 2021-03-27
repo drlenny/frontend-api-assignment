@@ -111,3 +111,11 @@ form div{
     text-align: center;
     color:black;
 }
+
+.recipeName{
+    height: 10px;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    color: black;
+}
