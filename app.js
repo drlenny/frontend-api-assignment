@@ -202,9 +202,11 @@ $(function () {
 
         var mealRecipeImage = document.getElementById("mealRecipeImage");
         var mealInstructions = document.getElementById("mealInstructions");
+        var mealRecipeName = document.getElementById("mealRecipeName");
 
         mealRecipeImage.src = recipeArr[0].strMealThumb;
         mealInstructions.innerHTML = recipeArr[0].strInstructions;
+        mealRecipeName.innerHTML = recipeArr[0].strMeal
 
     }
     var drinkRecipeArr = (data) => {
@@ -214,10 +216,12 @@ $(function () {
 
         var drinkRecipeImage = document.getElementById("drinkRecipeImage");
         var drinkInstructions = document.getElementById("drinkInstructions");
+        var drinkRecipeName = document.getElementById("drinkRecipeName");
         
 
         drinkRecipeImage.src = drinkArr[0].strDrinkThumb;
         drinkInstructions.innerHTML = drinkArr[0].strInstructions;
+        drinkRecipeName.innerHTML = drinkArr[0].strDrink;
         
 
     }
